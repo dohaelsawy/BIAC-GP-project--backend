@@ -2,7 +2,7 @@
 from django.db import transaction
 from rest_framework import serializers
 from dj_rest_auth.registration.serializers import RegisterSerializer
-from datetime import date, datetime
+from datetime import date
 from users.models import GENDER_SELECTION, CustomUser
 
 def calculateAge(date_of_birth):
@@ -26,7 +26,7 @@ class CustomRegisterSerializer(RegisterSerializer):
 
     @transaction.atomic
     def save(self, request):
-        """  """ 
+        """ the default function for saving user's information in database """ 
         user = super().save(request)
         user.gender = self.data.get('gender')
         user.phone_number = self.data.get('phone_number')

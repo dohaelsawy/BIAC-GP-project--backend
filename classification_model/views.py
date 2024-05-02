@@ -51,10 +51,10 @@ class ImageProcessingView(APIView):
             output_image_path = f"media/output_images/prediction_{image_file.name}_{my_uuid}.jpg"
             # print(prediction[0])
             # Save the prediction output image
-            prediction[0].save(output_image_path)
+            x =prediction[0].save(output_image_path)
             # Update the same instance with the output image path
             instance.img_url_after = output_image_path
             instance.save()
-            return Response("alhamdulillah", status=200)
+            return Response(instance.img_url_after, status=200)
         else:
             return Response(data=input_serializer.errors, status=400)

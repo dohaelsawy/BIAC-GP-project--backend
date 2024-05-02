@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'users',
     'biacBackEnd',
     'classification_model',
+    'image',
+    'classified_image',
 ]
 
 MIDDLEWARE = [
@@ -201,6 +203,7 @@ AUTHENTICATION_BACKENDS = [
 
 CUSTOM_PASSWORD_RESET_CONFIRM = 'desired URL'
 
+# MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 
 MEDIA_URL = '/media/'
